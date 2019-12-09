@@ -7,7 +7,7 @@ GitHub URL:https://github.com/JCUS-CP1404/assignment-01-aqua270120
 """
 # create a new list
 movie_list = []
-with open("movies.csv", "r") as rf:
+with open("movies_backup.csv", "r") as rf:
     reader = csv.reader(rf)
     movie_list = list(reader)
     # sort by year and add to the new list
@@ -148,13 +148,13 @@ def main():
             watch_movie()
         elif choice == "Q":
             print("Thank you")
-            print("{} movies saved to movies_backup.csv".format(len(movie_list)))
+            print("{} movies saved to movies.csv".format(len(movie_list)))
             break
         else:
             print("Invalid menu choice. Please try a again ")
 
-    # write movies_list to the movies_backup and also to reset movies_backup file
-    with open("movies_backup.csv", "w") as movie_backup:
+    # write movies_list to the movies and also to reset movies file
+    with open("movies.csv", "w") as movie_backup:
         movies_writer = csv.writer(movie_backup)
         for movies_data in movie_list:
             movies_writer.writerow(movies_data)
